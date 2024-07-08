@@ -1,0 +1,58 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        logicalFilePath="db/changelog.xml">
+
+
+    <changeSet id="TEMPLATE-1-create-table-dat_user" author="Andrey">
+        <comment>Create table dat_user</comment>
+        <createTable tableName="dat_user" remarks="Пользователи">
+            <column name="id" type="uuid" defaultValueComputed="uuid_generate_v4()" remarks="Идентификатор">
+                <constraints primaryKey="true" primaryKeyName="pk_dat_user_id"/>
+            </column>
+            <column name="last_name" type="varchar(100)" remarks="Фамилия">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(100)" remarks="Имя">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="TEMPLATE-1-create-index-idx_dat_user_last_name" author="Andrey">
+        <comment>Create unique index on dat_user.ext_user_id</comment>
+        <createIndex indexName="idx_dat_user_last_name" tableName="dat_user">
+            <column name="last_name"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="sbbol-billing-create-table-dat_user_token" author="Andrey">
+        <comment>Создание таблицы dat_user_token, хранящая СББОЛ токены.</comment>
+        <createTable tableName="dat_user_token">
+            <column name="id" type="BigSerial" remarks="Локальный идентификатор">
+                <constraints primaryKey="true" primaryKeyName="pk_dat_user_token_id"/>
+            </column>
+            <column name="uid_keycloak" type="uuid" remarks="Идентификатор Keycloak">
+                <constraints nullable="false"/>
+            </column>
+            <column name="access_token" type="varchar" remarks="Токен доступа. Годен от 10 минут до часа (Dev/Prod)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="refresh_token" type="varchar"
+                    remarks="Токен перезагрузки токена доступа и самого себя. Бессрочный">
+                <constraints nullable="false"/>
+            </column>
+            <column name="refresh_time" type="timestamp" remarks="Время последнего обновления токена">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expire_time" type="timestamp" remarks="Время устаревания токена">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createIndex tableName="dat_user_token" indexName="idx_dat_user_token_uid_keycloak">
+            <column name="uid_keycloak"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>
