@@ -9,5 +9,6 @@
 
     <include file="init/create-extension.xml" relativeToChangelogFile="true"/>
     <include file="update/changelog-1.0.xml" relativeToChangelogFile="true"/>
+    <include file="update/data.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

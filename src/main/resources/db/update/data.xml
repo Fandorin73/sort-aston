@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <property name="uuid_function" value="gen_random_uuid()" dbms="postgresql"/>
+
+    <changeSet id="insert data to data_user" author="Andrey">
+        <insert tableName="data_user">
+            <column name="id" valueComputed="${uuid_function}"/>
+            <column name="last_name" value="Иванов"/>
+            <column name="first_name" value="Иван"/>
+            <column name="age" value="22"/>
+        </insert>
+        <insert tableName="data_user">
+            <column name="id" valueComputed="${uuid_function}"/>
+            <column name="last_name" value="Петров"/>
+            <column name="first_name" value="Петр"/>
+            <column name="age" value="34"/>
+        </insert>
+        <insert tableName="data_user">
+            <column name="id" valueComputed="${uuid_function}"/>
+            <column name="last_name" value="Путин"/>
+            <column name="first_name" value="Владимир"/>
+            <column name="age" value="71"/>
+        </insert>
+        <insert tableName="data_user">
+            <column name="id" valueComputed="${uuid_function}"/>
+            <column name="last_name" value="Гослинг"/>
+            <column name="first_name" value="Джеймс"/>
+            <column name="age" value="69"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
