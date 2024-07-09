@@ -1,19 +1,21 @@
 package ru.aston.springtest.springdemo.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import ru.aston.springtest.springdemo.entity.UserEntity;
-import ru.aston.springtest.springdemo.mapper.UserMapper;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import ru.aston.springtest.springdemo.dto.UserDto;
+import ru.aston.springtest.springdemo.service.UserService;
+
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Entity для юзера.
@@ -21,76 +23,65 @@ import ru.aston.springtest.springdemo.mapper.UserMapper;
  * @author Andrey
  */
 @RestController
-@RequestMapping(path = "/test")
-@RequiredArgsConstructor
+@RequestMapping(path = "/users")
+@AllArgsConstructor
 public class UserController {
 
-    private List<UserEntity> users = createList();
-    private final UserMapper userMapper;
+    private UserService userService;
+
     /**
-     * Entity для юзера.
+     * Добавление User.
      *
      * @author Andrey
      */
-    @RequestMapping(value = "/users", method = RequestMethod.GET, produces = "application/json")
-    public List<UserEntity> firstPage() {
-        return users;
+    @PostMapping(path = "/save")
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+        UserDto savedUser = userService.createUser(userDto);
+        return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
     /**
-     * Entity для юзера.
+     * Поиск по id User.
      *
      * @author Andrey
      */
-    @GetMapping(path = "/hello/{name}")
-    public String helloApp(@PathVariable String name) {
-        return "Hello " + name;
+    @GetMapping(path = "/get/{id}")
+    public ResponseEntity<UserDto> getUserById(@PathVariable("id") UUID userId) {
+        UserDto userDto = userService.getUserById(userId);
+        return ResponseEntity.ok(userDto);
     }
 
     /**
-     * Entity для юзера.
+     * Изменение User.
      *
      * @author Andrey
      */
-    @DeleteMapping(path = {"/{id}"})
-    public UserEntity delete(@PathVariable("id") int id) {
-        UserEntity deletedEmp = null;
-        for (UserEntity emp : users) {
-            if (emp.getUserId().equals(id)) {
-                users.remove(emp);
-                deletedEmp = emp;
-                break;
-            }
-        }
-        return deletedEmp;
+    @PutMapping(path = "/update/{id}")
+    public ResponseEntity<UserDto> updateUser(@PathVariable("id") UUID userId,
+                                              @RequestBody UserDto updatedUser) {
+        UserDto userDto = userService.updateUser(userId, updatedUser);
+        return ResponseEntity.ok(userDto);
     }
 
     /**
-     * Entity для юзера.
+     * Поиск всех User.
      *
      * @author Andrey
      */
-    @PostMapping
-    public UserEntity create(@RequestBody UserEntity user) {
-        users.add(user);
-        System.out.println(users);
-        return user;
+    @GetMapping(path = "/get")
+    public ResponseEntity<List<UserDto>> getAllUser() {
+        List<UserDto> users = userService.getAllUser();
+        return ResponseEntity.ok(users);
     }
 
-    private static List<UserEntity> createList() {
-        final List<UserEntity> tempEmployees = new ArrayList<>();
-        UserEntity emp1 = new UserEntity();
-        emp1.setUserId(UUID.randomUUID());
-        emp1.setFirstName("Иван");
-        emp1.setLastName("Иванов");
-        emp1.setAge(22);
-        UserEntity emp2 = new UserEntity();
-        emp2.setUserId(UUID.randomUUID());
-        emp2.setFirstName("Петр");
-        emp2.setLastName("Петров");
-        emp2.setAge(36);
-        tempEmployees.add(emp1);
-        tempEmployees.add(emp2);
-        return tempEmployees;
+    /**
+     * Удаление User.
+     *
+     * @author Andrey
+     */
+    @DeleteMapping(path = "/delete/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable("id") UUID userId) {
+        userService.deleteUser(userId);
+        return ResponseEntity.ok("Удаление произожло успешно!");
     }
 }
