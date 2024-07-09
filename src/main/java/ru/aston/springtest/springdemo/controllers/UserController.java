@@ -3,7 +3,7 @@ package ru.aston.springtest.springdemo.controllers;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import ru.aston.springtest.springdemo.entity.User;
+import ru.aston.springtest.springdemo.entity.UserEntity;
+import ru.aston.springtest.springdemo.mapper.UserMapper;
 
 /**
  * Entity для юзера.
@@ -21,16 +22,18 @@ import ru.aston.springtest.springdemo.entity.User;
  */
 @RestController
 @RequestMapping(path = "/test")
+@RequiredArgsConstructor
 public class UserController {
-    private List<User> users = createList();
 
+    private List<UserEntity> users = createList();
+    private final UserMapper userMapper;
     /**
      * Entity для юзера.
      *
      * @author Andrey
      */
     @RequestMapping(value = "/users", method = RequestMethod.GET, produces = "application/json")
-    public List<User> firstPage() {
+    public List<UserEntity> firstPage() {
         return users;
     }
 
@@ -50,9 +53,9 @@ public class UserController {
      * @author Andrey
      */
     @DeleteMapping(path = {"/{id}"})
-    public User delete(@PathVariable("id") int id) {
-        User deletedEmp = null;
-        for (User emp : users) {
+    public UserEntity delete(@PathVariable("id") int id) {
+        UserEntity deletedEmp = null;
+        for (UserEntity emp : users) {
             if (emp.getUserId().equals(id)) {
                 users.remove(emp);
                 deletedEmp = emp;
@@ -68,20 +71,20 @@ public class UserController {
      * @author Andrey
      */
     @PostMapping
-    public User create(@RequestBody User user) {
+    public UserEntity create(@RequestBody UserEntity user) {
         users.add(user);
         System.out.println(users);
         return user;
     }
 
-    private static List<User> createList() {
-        final List<User> tempEmployees = new ArrayList<>();
-        User emp1 = new User();
+    private static List<UserEntity> createList() {
+        final List<UserEntity> tempEmployees = new ArrayList<>();
+        UserEntity emp1 = new UserEntity();
         emp1.setUserId(UUID.randomUUID());
         emp1.setFirstName("Иван");
         emp1.setLastName("Иванов");
         emp1.setAge(22);
-        User emp2 = new User();
+        UserEntity emp2 = new UserEntity();
         emp2.setUserId(UUID.randomUUID());
         emp2.setFirstName("Петр");
         emp2.setLastName("Петров");

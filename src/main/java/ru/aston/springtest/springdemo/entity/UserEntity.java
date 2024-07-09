@@ -19,7 +19,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements IEntity {
+public class UserEntity implements IEntity {
     @Id
     @Column(name = "id")
     private UUID userId;
