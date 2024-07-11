@@ -1,9 +1,9 @@
-package ru.aston.springtest.springdemo.entity;
+package ru.aston.sort.entity;
 
 /**
  * Маркер для всех Entity.
  *
- * @author Andrey
+ * @author Team Aston
  */
 public interface IEntity {
 }
