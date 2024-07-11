@@ -1,7 +1,7 @@
-package ru.aston.springtest.springdemo.repository;
+package ru.aston.sort.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.aston.springtest.springdemo.entity.UserEntity;
+import ru.aston.sort.entity.UserEntity;
 
 import java.util.UUID;
 

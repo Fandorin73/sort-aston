@@ -1,4 +1,4 @@
-package ru.aston.springtest.springdemo.controllers;
+package ru.aston.sort.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import ru.aston.springtest.springdemo.dto.UserDto;
-import ru.aston.springtest.springdemo.service.UserService;
+import ru.aston.sort.dto.UserDto;
+import ru.aston.sort.service.UserService;
 
 import java.util.List;
 import java.util.UUID;
@@ -82,6 +82,17 @@ public class UserController {
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") UUID userId) {
         userService.deleteUser(userId);
+        return ResponseEntity.ok("Удаление произожло успешно!");
+    }
+
+    /**
+     * Удаление всех User.
+     *
+     * @author Andrey
+     */
+    @DeleteMapping(path = "/delete")
+    public ResponseEntity<String> deleteAllUser() {
+        userService.deleteAllUser();
         return ResponseEntity.ok("Удаление произожло успешно!");
     }
 }

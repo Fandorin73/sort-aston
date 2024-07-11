@@ -1,9 +1,9 @@
-package ru.aston.springtest.springdemo.mapper;
+package ru.aston.sort.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
-import ru.aston.springtest.springdemo.dto.UserDto;
-import ru.aston.springtest.springdemo.entity.UserEntity;
+import ru.aston.sort.dto.UserDto;
+import ru.aston.sort.entity.UserEntity;
 
 /**
  * Маппер для user token.

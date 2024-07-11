@@ -41,3 +41,6 @@ spring:
       #Определяет схему, которую следует использовать для создания объектов Liquibase,
       #таких как таблицы отслеживания DATABASECHANGELOG и DATABASECHANGELOGLOCK
     liquibase-schema: schema
+springdoc:
+  swagger-ui:
+    display-request-duration: true

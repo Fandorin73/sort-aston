@@ -1,4 +1,4 @@
-package ru.aston.springtest.springdemo.exception;
+package ru.aston.sort.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

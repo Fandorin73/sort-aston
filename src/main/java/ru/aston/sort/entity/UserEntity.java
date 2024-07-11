@@ -1,4 +1,4 @@
-package ru.aston.springtest.springdemo.entity;
+package ru.aston.sort.entity;
 
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;

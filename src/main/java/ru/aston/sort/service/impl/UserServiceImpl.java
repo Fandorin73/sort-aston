@@ -1,13 +1,13 @@
-package ru.aston.springtest.springdemo.service.impl;
+package ru.aston.sort.service.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.aston.springtest.springdemo.dto.UserDto;
-import ru.aston.springtest.springdemo.entity.UserEntity;
-import ru.aston.springtest.springdemo.exception.ResourceNotFoundException;
-import ru.aston.springtest.springdemo.mapper.UserMapper;
-import ru.aston.springtest.springdemo.repository.UserRepository;
-import ru.aston.springtest.springdemo.service.UserService;
+import ru.aston.sort.dto.UserDto;
+import ru.aston.sort.exception.ResourceNotFoundException;
+import ru.aston.sort.mapper.UserMapper;
+import ru.aston.sort.repository.UserRepository;
+import ru.aston.sort.service.UserService;
+import ru.aston.sort.entity.UserEntity;
 
 import java.util.List;
 import java.util.UUID;
@@ -67,5 +67,10 @@ public class UserServiceImpl implements UserService {
                         () -> new ResourceNotFoundException("User is not exist with given id: " + userId)
                 );
         userRepository.deleteById(userId);
+    }
+
+    @Override
+    public void deleteAllUser() {
+        userRepository.deleteAll();
     }
 }

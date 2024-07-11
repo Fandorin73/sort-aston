@@ -1,4 +1,4 @@
-package ru.aston.springtest.springdemo.mapper;
+package ru.aston.sort.mapper;
 
 import java.util.List;
 

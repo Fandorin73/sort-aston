@@ -1,4 +1,4 @@
-package ru.aston.springtest.springdemo.dto;
+package ru.aston.sort.dto;
 
 /**
  * Маркер для Dto.

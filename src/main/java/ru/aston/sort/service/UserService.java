@@ -1,6 +1,6 @@
-package ru.aston.springtest.springdemo.service;
+package ru.aston.sort.service;
 
-import ru.aston.springtest.springdemo.dto.UserDto;
+import ru.aston.sort.dto.UserDto;
 
 import java.util.List;
 import java.util.UUID;
@@ -50,4 +50,10 @@ public interface UserService {
      * @param userId - id User
      */
     void deleteUser(UUID userId);
+
+    /**
+     * Удаление всех User
+     *
+     */
+    void deleteAllUser();
 }
