@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Точка входа.
  *
- * @author Andrey
+ * @author Team Aston
  */
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(title = "Aston Sort", version = "1.0", description = "Сортирует класс"))

@@ -8,7 +8,7 @@ import ru.aston.sort.entity.UserEntity;
 /**
  * Маппер для user token.
  *
- * @author Andrey
+ * @author Team Aston
  */
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface UserMapper extends MapperModel<UserEntity, UserDto> {

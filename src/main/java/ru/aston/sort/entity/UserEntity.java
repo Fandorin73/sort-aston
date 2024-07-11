@@ -12,7 +12,7 @@ import java.util.UUID;
 /**
  * Entity для юзера.
  *
- * @author Andrey
+ * @author Team Aston
  */
 @Entity
 @Table(name = "data_user")

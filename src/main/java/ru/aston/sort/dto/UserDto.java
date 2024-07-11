@@ -9,7 +9,7 @@ import java.util.UUID;
 /**
  * DTO для User.
  *
- * @author Andrey
+ * @author Team Aston
  */
 @Data
 @AllArgsConstructor

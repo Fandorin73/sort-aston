@@ -8,7 +8,7 @@ import java.util.UUID;
 /**
  * Хранилище юзер.
  *
- * @author Andrey
+ * @author Team Aston
  */
 public interface UserRepository extends JpaRepository<UserEntity, UUID> {
 }

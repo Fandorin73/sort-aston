@@ -8,7 +8,7 @@ import java.util.UUID;
 /**
  * Сервис работы с User.
  *
- * @author Andrey
+ * @author Team Aston
  */
 public interface UserService {
 
@@ -34,6 +34,20 @@ public interface UserService {
      * @return - UserDto
      */
     List<UserDto> getAllUser();
+
+    /**
+     * SortBubble User
+     *
+     * @return - UserDto
+     */
+    List<UserDto> getAllUserSortBubble();
+
+    /**
+     * SortQuick User
+     *
+     * @return - UserDto
+     */
+    List<UserDto> getAllUserSortQuick();
 
     /**
      * Изменение User по id

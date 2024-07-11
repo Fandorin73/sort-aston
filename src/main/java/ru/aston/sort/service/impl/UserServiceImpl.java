@@ -16,14 +16,14 @@ import java.util.UUID;
 /**
  * Имплементация UserService.
  *
- * @author Andrey
+ * @author Team Aston
  */
 @Service
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
-    private UserMapper mapper;
+    private final UserRepository userRepository;
+    private final UserMapper mapper;
 
     @Override
     public UserDto createUser(UserDto userDto) {
@@ -44,6 +44,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDto> getAllUser() {
         List<UserEntity> userEntitys = userRepository.findAll();
+        return mapper.toListDto(userEntitys);
+    }
+
+    // TODO: 11.07.2024  : SortBubble
+    @Override
+    public List<UserDto> getAllUserSortBubble() {
+        List<UserEntity> userEntitys = userRepository.findAll();
+
+        return mapper.toListDto(userEntitys);
+    }
+    // TODO: 11.07.2024  : SortQuick
+    @Override
+    public List<UserDto> getAllUserSortQuick() {
+        List<UserEntity> userEntitys = userRepository.findAll();
+
         return mapper.toListDto(userEntitys);
     }
 

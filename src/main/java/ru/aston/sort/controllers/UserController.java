@@ -20,19 +20,19 @@ import java.util.UUID;
 /**
  * Entity для юзера.
  *
- * @author Andrey
+ * @author Team Aston
  */
 @RestController
 @RequestMapping(path = "/users")
 @AllArgsConstructor
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     /**
      * Добавление User.
      *
-     * @author Andrey
+     * @author Team Aston
      */
     @PostMapping(path = "/save")
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
@@ -43,7 +43,7 @@ public class UserController {
     /**
      * Поиск по id User.
      *
-     * @author Andrey
+     * @author Team Aston
      */
     @GetMapping(path = "/get/{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable("id") UUID userId) {
@@ -54,7 +54,7 @@ public class UserController {
     /**
      * Изменение User.
      *
-     * @author Andrey
+     * @author Team Aston
      */
     @PutMapping(path = "/update/{id}")
     public ResponseEntity<UserDto> updateUser(@PathVariable("id") UUID userId,
@@ -66,7 +66,7 @@ public class UserController {
     /**
      * Поиск всех User.
      *
-     * @author Andrey
+     * @author Team Aston
      */
     @GetMapping(path = "/get")
     public ResponseEntity<List<UserDto>> getAllUser() {
@@ -75,9 +75,31 @@ public class UserController {
     }
 
     /**
+     * User отсортированные SortBubble.
+     *
+     * @author Team Aston
+     */
+    @GetMapping(path = "/getSortBubble")
+    public ResponseEntity<List<UserDto>> getAllUser2() {
+        List<UserDto> users = userService.getAllUserSortBubble();
+        return ResponseEntity.ok(users);
+    }
+
+    /**
+     * User отсортированные SortQuick.
+     *
+     * @author Team Aston
+     */
+    @GetMapping(path = "/getSortQuick")
+    public ResponseEntity<List<UserDto>> getAllUser3() {
+        List<UserDto> users = userService.getAllUserSortQuick();
+        return ResponseEntity.ok(users);
+    }
+
+    /**
      * Удаление User.
      *
-     * @author Andrey
+     * @author Team Aston
      */
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable("id") UUID userId) {
@@ -88,7 +110,7 @@ public class UserController {
     /**
      * Удаление всех User.
      *
-     * @author Andrey
+     * @author Team Aston
      */
     @DeleteMapping(path = "/delete")
     public ResponseEntity<String> deleteAllUser() {
