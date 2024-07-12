@@ -1,14 +1,4 @@
 spring:
-  boot:
-    admin:
-      url: http://localhost:8081
-      client:
-        url: http://localhost:8081
-        enabled: false
-# активировать профиль загрузки Spring при запуске из IntelliJ
-#Выбирает какие поля загрузить из разных профилей загрузки
-  profiles:
-    active: local
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: false
@@ -20,26 +10,14 @@ spring:
       hibernate:
         generate_statistics: false
         default_schema: schema
-      jdbc:
-        batch_size: 100
-      order_inserts: true
-      order_updates: true
   datasource:
     url: ${DB_URL}
     password: ${DB_PWD}
     username: ${DB_USER}
     driver-class-name: org.postgresql.Driver
-   # https://www:baeldung:com/hikaricp:
-    #Это свойство устанавливает схему по умолчанию для баз данных, поддерживающих концепцию схемы.
-    #Если этот атрибут не указан, JDBCиспользуется режим по умолчанию, определенный драйвером.
-    hikari:
-      schema: schema
   liquibase:
     change-log: classpath:db/changelog.xml
-      #Эталонное имя схемы по умолчанию, используемое для подключения к базе данных
     default-schema: schema
-      #Определяет схему, которую следует использовать для создания объектов Liquibase,
-      #таких как таблицы отслеживания DATABASECHANGELOG и DATABASECHANGELOGLOCK
     liquibase-schema: schema
 springdoc:
   swagger-ui:

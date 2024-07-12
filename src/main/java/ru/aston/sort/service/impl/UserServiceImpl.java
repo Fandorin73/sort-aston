@@ -54,6 +54,7 @@ public class UserServiceImpl implements UserService {
 
         return mapper.toListDto(userEntitys);
     }
+
     // TODO: 11.07.2024  : SortQuick
     @Override
     public List<UserDto> getAllUserSortQuick() {
