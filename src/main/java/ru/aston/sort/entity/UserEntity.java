@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 import java.util.UUID;
 
 /**
- * Entity для юзера.
+ * Entity для User.
  *
  * @author Team Aston
  */
