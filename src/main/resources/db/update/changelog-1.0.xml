@@ -12,13 +12,7 @@
             <column name="id" type="uuid" defaultValueComputed="uuid_generate_v4()" remarks="Идентификатор">
                 <constraints primaryKey="true" primaryKeyName="pk_dat_user_id"/>
             </column>
-            <column name="last_name" type="varchar(100)" remarks="Фамилия">
-                <constraints nullable="false"/>
-            </column>
-            <column name="first_name" type="varchar(100)" remarks="Имя">
-                <constraints nullable="false"/>
-            </column>
-            <column name="age" type="int" remarks="Возраст">
+            <column name="user_name" type="varchar(100)" remarks="Фамилия">
                 <constraints nullable="false"/>
             </column>
         </createTable>

@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Entity для юзера.
+ * Controller для юзера.
  *
  * @author Team Aston
  */
