@@ -27,5 +27,5 @@ public class SortStatistic implements IEntity{
     private Duration sortingTime;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = true)
-    private UserEntity ownerId;
+    private UserEntity userEntity;
 }

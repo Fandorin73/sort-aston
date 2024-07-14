@@ -3,7 +3,10 @@ package ru.aston.sort.service.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.aston.sort.dto.SortStatisticDto;
+import ru.aston.sort.dto.UserDto;
 import ru.aston.sort.entity.SortStatistic;
+import ru.aston.sort.entity.UserEntity;
+import ru.aston.sort.exception.ResourceNotFoundException;
 import ru.aston.sort.mapper.SortStatisticsMapper;
 import ru.aston.sort.repository.SortStatisticRepository;
 import ru.aston.sort.service.SortService;
@@ -26,6 +29,15 @@ public class SortServiceImpl implements SortService {
         List<SortStatistic> sortStatistics = sortStatisticRepository.findAll();
         return mapper.toListDto(sortStatistics);
     }
+
+   /* @Override
+    public List<SortStatisticDto> getSortByUserId(UUID userId) {
+        List<SortStatistic> sortStatistic = sortStatisticRepository.getSortStatisticByUserEntity(userId);
+
+        return mapper.toListDto(sortStatistic);
+    }*/
+
+
 
     @Override
     public List<Integer> getArraySortBubble(List<Integer> array) {

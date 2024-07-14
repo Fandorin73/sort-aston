@@ -11,6 +11,7 @@ import ru.aston.sort.service.SortService;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Controller для Статистики.
@@ -33,6 +34,18 @@ public class SortController {
         List<SortStatisticDto> users = sortService.getAllSort();
         return ResponseEntity.ok(users);
     }
+
+
+  /*  *//**
+     * Поиск сортировок User.
+     *
+     * @author Team Aston
+     *//*
+    @GetMapping(path = "/getSortUserId/{id}")
+    public ResponseEntity<List<SortStatisticDto>> getSortByUserId(@PathVariable(value = "user_id") UUID userId) {
+        List<SortStatisticDto> sortStatistic = sortService.getSortByUserId(userId);
+        return new ResponseEntity<>(sortStatistic, HttpStatus.OK);
+    }*/
 
     /**
      * Сортировка Bubble массива , запись стаистики сортировки(времени и количества перестановок).

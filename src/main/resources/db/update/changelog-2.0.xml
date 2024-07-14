@@ -9,7 +9,7 @@
     <changeSet id="TEMPLATE-2-create-table-data_sort_statistics" author="Andrey">
         <comment>Create table data_sort_statistics</comment>
         <createTable tableName="data_sort_statistics" remarks="Статистика сортировок">
-            <column name="user_id" type="uuid" defaultValueComputed="uuid_generate_v4()" remarks="Идентификатор">
+            <column name="id" type="uuid" defaultValueComputed="uuid_generate_v4()" remarks="Идентификатор">
                 <constraints primaryKey="true" primaryKeyName="pk_data_sort_statistics_id"/>
             </column>
             <column name="permutations" type="int" remarks="Количество перестановок">
@@ -18,7 +18,7 @@
             <column name="sorting_time" type="NUMERIC" remarks="Время сортировки">
                 <constraints nullable="false"/>
             </column>
-            <column name="ownerId" type="NUMERIC" remarks="Время сортировки">
+            <column name="user_id" type="uuid" remarks="Время сортировки">
                 <constraints nullable="false"/>
             </column>
         </createTable>
