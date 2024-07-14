@@ -6,7 +6,7 @@ import ru.aston.sort.dto.UserDto;
 import ru.aston.sort.entity.UserEntity;
 
 /**
- * Маппер для User.
+ * Маппер для user token.
  *
  * @author Team Aston
  */

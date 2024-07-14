@@ -8,21 +8,28 @@
 
     <changeSet id="insert data to data_user" author="Andrey">
         <insert tableName="data_user">
-            <column name="user_id" valueComputed="${uuid_function}"/>
-            <column name="user_name" value="Иванов"/>
+            <column name="id" valueComputed="${uuid_function}"/>
+            <column name="last_name" value="Иванов"/>
+            <column name="first_name" value="Иван"/>
+            <column name="age" value="22"/>
         </insert>
         <insert tableName="data_user">
-            <column name="user_id" valueComputed="${uuid_function}"/>
-            <column name="user_name" value="Петр"/>
+            <column name="id" valueComputed="${uuid_function}"/>
+            <column name="last_name" value="Петров"/>
+            <column name="first_name" value="Петр"/>
+            <column name="age" value="34"/>
         </insert>
         <insert tableName="data_user">
-            <column name="user_id" valueComputed="${uuid_function}"/>
-            <column name="user_name" value="Путин"/>
-
+            <column name="id" valueComputed="${uuid_function}"/>
+            <column name="last_name" value="Путин"/>
+            <column name="first_name" value="Владимир"/>
+            <column name="age" value="71"/>
         </insert>
         <insert tableName="data_user">
-            <column name="user_id" valueComputed="${uuid_function}"/>
-            <column name="user_name" value="Гослинг"/>
+            <column name="id" valueComputed="${uuid_function}"/>
+            <column name="last_name" value="Гослинг"/>
+            <column name="first_name" value="Джеймс"/>
+            <column name="age" value="69"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

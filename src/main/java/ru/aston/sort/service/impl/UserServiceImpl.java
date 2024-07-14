@@ -8,6 +8,7 @@ import ru.aston.sort.mapper.UserMapper;
 import ru.aston.sort.repository.UserRepository;
 import ru.aston.sort.service.UserService;
 import ru.aston.sort.entity.UserEntity;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -46,13 +47,31 @@ public class UserServiceImpl implements UserService {
         return mapper.toListDto(userEntitys);
     }
 
+    // TODO: 11.07.2024  : SortBubble
+    @Override
+    public List<UserDto> getAllUserSortBubble() {
+        List<UserEntity> userEntitys = userRepository.findAll();
+
+        return mapper.toListDto(userEntitys);
+    }
+
+    // TODO: 11.07.2024  : SortQuick
+    @Override
+    public List<UserDto> getAllUserSortQuick() {
+        List<UserEntity> userEntitys = userRepository.findAll();
+
+        return mapper.toListDto(userEntitys);
+    }
+
     @Override
     public UserDto updateUser(UUID userId, UserDto updateUser) {
         UserEntity userEntity = userRepository.findById(userId)
                 .orElseThrow(
                         () -> new ResourceNotFoundException("User is not exist with given id: " + userId)
                 );
-        userEntity.setUserName(updateUser.getUserName());
+        userEntity.setFirstName(updateUser.getFirstName());
+        userEntity.setLastName(updateUser.getLastName());
+        userEntity.setAge(updateUser.getAge());
         UserEntity updateUserObj = userRepository.save(userEntity);
         return mapper.toDto(updateUserObj);
     }

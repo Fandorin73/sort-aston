@@ -19,5 +19,9 @@ public class UserDto implements DtoModel {
 
     private UUID userId;
 
-    private String userName;
+    private String lastName;
+
+    private String firstName;
+
+    private Integer age;
 }

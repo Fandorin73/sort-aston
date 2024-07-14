@@ -6,10 +6,9 @@ import ru.aston.sort.entity.UserEntity;
 import java.util.UUID;
 
 /**
- * Хранилище User.
+ * Хранилище юзер.
  *
  * @author Team Aston
  */
 public interface UserRepository extends JpaRepository<UserEntity, UUID> {
-
 }
