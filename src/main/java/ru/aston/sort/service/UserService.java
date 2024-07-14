@@ -1,7 +1,6 @@
 package ru.aston.sort.service;
 
 import ru.aston.sort.dto.UserDto;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -34,20 +33,6 @@ public interface UserService {
      * @return - UserDto
      */
     List<UserDto> getAllUser();
-
-    /**
-     * SortBubble User
-     *
-     * @return - UserDto
-     */
-    List<UserDto> getAllUserSortBubble();
-
-    /**
-     * SortQuick User
-     *
-     * @return - UserDto
-     */
-    List<UserDto> getAllUserSortQuick();
 
     /**
      * Изменение User по id

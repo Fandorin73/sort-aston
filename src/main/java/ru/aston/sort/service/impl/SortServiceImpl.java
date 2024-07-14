@@ -3,14 +3,13 @@ package ru.aston.sort.service.impl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.aston.sort.dto.SortStatisticDto;
-import ru.aston.sort.dto.UserDto;
 import ru.aston.sort.entity.SortStatistic;
-import ru.aston.sort.entity.UserEntity;
-import ru.aston.sort.exception.ResourceNotFoundException;
 import ru.aston.sort.mapper.SortStatisticsMapper;
 import ru.aston.sort.repository.SortStatisticRepository;
 import ru.aston.sort.service.SortService;
-import java.util.*;
+import java.util.List;
+import java.util.UUID;
+
 
 /**
  * Имплементация SortService.
@@ -30,12 +29,12 @@ public class SortServiceImpl implements SortService {
         return mapper.toListDto(sortStatistics);
     }
 
-   /* @Override
+    @Override
     public List<SortStatisticDto> getSortByUserId(UUID userId) {
-        List<SortStatistic> sortStatistic = sortStatisticRepository.getSortStatisticByUserEntity(userId);
+        List<SortStatistic> sortStatistic = sortStatisticRepository.getAllByUserEntityUserId(userId);
 
         return mapper.toListDto(sortStatistic);
-    }*/
+    }
 
 
 

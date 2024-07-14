@@ -5,11 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.aston.sort.dto.SortStatisticDto;
-import ru.aston.sort.dto.UserDto;
 import ru.aston.sort.service.SortService;
-
-import java.time.Duration;
-import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,17 +31,16 @@ public class SortController {
         return ResponseEntity.ok(users);
     }
 
-
-  /*  *//**
+    /**
      * Поиск сортировок User.
      *
      * @author Team Aston
-     *//*
-    @GetMapping(path = "/getSortUserId/{id}")
+     */
+    @GetMapping(path = "/getSortUserId/{user_id}")
     public ResponseEntity<List<SortStatisticDto>> getSortByUserId(@PathVariable(value = "user_id") UUID userId) {
         List<SortStatisticDto> sortStatistic = sortService.getSortByUserId(userId);
         return new ResponseEntity<>(sortStatistic, HttpStatus.OK);
-    }*/
+    }
 
     /**
      * Сортировка Bubble массива , запись стаистики сортировки(времени и количества перестановок).

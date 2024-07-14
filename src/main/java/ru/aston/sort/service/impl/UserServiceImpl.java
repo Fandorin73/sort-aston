@@ -8,7 +8,6 @@ import ru.aston.sort.mapper.UserMapper;
 import ru.aston.sort.repository.UserRepository;
 import ru.aston.sort.service.UserService;
 import ru.aston.sort.entity.UserEntity;
-
 import java.util.List;
 import java.util.UUID;
 
@@ -44,22 +43,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDto> getAllUser() {
         List<UserEntity> userEntitys = userRepository.findAll();
-        return mapper.toListDto(userEntitys);
-    }
-
-    // TODO: 11.07.2024  : SortBubble
-    @Override
-    public List<UserDto> getAllUserSortBubble() {
-        List<UserEntity> userEntitys = userRepository.findAll();
-
-        return mapper.toListDto(userEntitys);
-    }
-
-    // TODO: 11.07.2024  : SortQuick
-    @Override
-    public List<UserDto> getAllUserSortQuick() {
-        List<UserEntity> userEntitys = userRepository.findAll();
-
         return mapper.toListDto(userEntitys);
     }
 

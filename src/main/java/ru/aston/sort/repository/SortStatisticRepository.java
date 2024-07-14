@@ -12,5 +12,5 @@ import java.util.UUID;
  * @author Team Aston
  */
 public interface SortStatisticRepository extends JpaRepository<SortStatistic, UUID> {
-/*    List<SortStatistic> getSortStatisticByUserEntity(UUID userId);*/
+    List<SortStatistic> getAllByUserEntityUserId(UUID userId);
 }
