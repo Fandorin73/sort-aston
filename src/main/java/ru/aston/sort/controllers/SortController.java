@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.aston.sort.dto.SortStatisticDto;
+import ru.aston.sort.dto.UserDto;
 import ru.aston.sort.service.SortService;
 import java.util.List;
 import java.util.UUID;
@@ -48,8 +49,9 @@ public class SortController {
      * @author Team Aston
      */
     @PostMapping(path = "/sortArrayBubble")
-    public ResponseEntity<List<Integer>> sortArrayBubble(@RequestBody List<Integer> array) {
-        List<Integer> arrayResult = sortService.getArraySortBubble(array);
+    public ResponseEntity<List<Integer>> sortArrayBubble(@RequestBody List<Integer> array,UUID userId) {
+
+        List<Integer> arrayResult = sortService.getArraySortBubble(array,userId);
         return new ResponseEntity<>(arrayResult, HttpStatus.OK);
     }
 
@@ -59,12 +61,8 @@ public class SortController {
      * @author Team Aston
      */
     @PostMapping(path = "/sortArrayQuick")
-    public ResponseEntity<List<Integer>> sortArrayQuick(@RequestBody List<Integer> array) {
-
-        List<Integer> arrayResult = sortService.getArraySortQuick(array);
-
-
-
+    public ResponseEntity<List<Integer>> sortArrayQuick(@RequestBody List<Integer> array,UUID userId) {
+        List<Integer> arrayResult = sortService.getArraySortQuick(array,userId);
         return new ResponseEntity<>(arrayResult, HttpStatus.OK);
     }
 }

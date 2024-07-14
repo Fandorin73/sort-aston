@@ -31,12 +31,12 @@ public interface SortService {
      *
      * @return - List<Integer>
      */
-    List<Integer> getArraySortBubble(List<Integer> array);
+    List<Integer> getArraySortBubble(List<Integer> array,UUID userId);
 
     /**
      * SortQuick  массив
      *
      * @return - List<Integer>
      */
-    List<Integer> getArraySortQuick(List<Integer> array);
+    List<Integer> getArraySortQuick(List<Integer> array,UUID userId);
 }
