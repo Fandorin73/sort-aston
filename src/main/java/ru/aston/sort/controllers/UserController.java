@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import ru.aston.sort.dto.UserDto;
 import ru.aston.sort.service.UserService;
-
 import java.util.List;
 import java.util.UUID;
 
 /**
- * Entity для юзера.
+ * Controller для юзера.
  *
  * @author Team Aston
  */
@@ -71,28 +70,6 @@ public class UserController {
     @GetMapping(path = "/get")
     public ResponseEntity<List<UserDto>> getAllUser() {
         List<UserDto> users = userService.getAllUser();
-        return ResponseEntity.ok(users);
-    }
-
-    /**
-     * User отсортированные SortBubble.
-     *
-     * @author Team Aston
-     */
-    @GetMapping(path = "/getSortBubble")
-    public ResponseEntity<List<UserDto>> getAllUser2() {
-        List<UserDto> users = userService.getAllUserSortBubble();
-        return ResponseEntity.ok(users);
-    }
-
-    /**
-     * User отсортированные SortQuick.
-     *
-     * @author Team Aston
-     */
-    @GetMapping(path = "/getSortQuick")
-    public ResponseEntity<List<UserDto>> getAllUser3() {
-        List<UserDto> users = userService.getAllUserSortQuick();
         return ResponseEntity.ok(users);
     }
 

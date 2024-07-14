@@ -4,10 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.time.Duration;
 import java.util.UUID;
 
 /**
- * DTO для User.
+ * DTO для Статистики.
  *
  * @author Team Aston
  */
@@ -15,9 +16,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserDto implements DtoModel {
+public class SortStatisticDto {
 
-    private UUID userId;
+    private UUID sortStatisticId;
 
-    private String userName;
+    private Integer permutations;
+
+    private Duration sortingTime;
 }
