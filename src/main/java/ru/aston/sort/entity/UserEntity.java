@@ -21,13 +21,9 @@ import java.util.UUID;
 @NoArgsConstructor
 public class UserEntity implements IEntity {
     @Id
-    @Column(name = "id")
+    @Column(name = "user_id")
     private UUID userId;
-    @Column(name = "last_name")
-    private String lastName;
-    @Column(name = "first_name")
-    private String firstName;
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "user_name")
+    private String userName;
 
 }
